@@ -7,23 +7,25 @@ Below includes detailed methods, code logic, decisions, transformations, and dat
 - Grain: One row = one store
 - Critical Variables: EngagementScore, YTDPROFIT, SUBTOTALSALES, NetTurnover, CSAT2019, CustComplaints
 # Cleaning Process
-All fixes are documented 
-Data Understanding
+All fixes are documented in the [change-log](Henshaw_Changelog.xlsx).
+
+## Data Understanding
 - Grain confirmed: Store-level aggregation
 - Measures: Engagement score, profit, sales, turnover, etc.
 - Dimensions: District, Store Number
 - Critical Variables Confirmed: EngagementScore, YTDPROFIT, SUBTOTALSALES, NetTurnover, CSAT2019, CustComplaints
-Solvable Issues
+## Solvable Issues
 - Missing Thresholds:
   - Dropped stores with N_EEs < 5
   - Removed stores missing critical financial or customer data
 - Outliers: Used z-scores; flagged stores with |z| > 3 on financials and engagement
 - Field Formatting: Converted object columns to numeric
-Unsolvable Issues
+## Unsolvable Issues
 - Minimal impact cases (<10%) were dropped
-Augmentations
+## Augmentations
 - EngagementScore: Created from survey subcomponents or used provided EngagementStoreAverage
 - Final Include Flag: Filtered data where:
     - N_EEs ≥ 5
     - Not missing critical variables
     - Not flagged as outliers
+- DAX Augmentations are in 
