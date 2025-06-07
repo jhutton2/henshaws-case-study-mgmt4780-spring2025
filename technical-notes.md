@@ -43,13 +43,14 @@ Regression (Profit and Engagement)
   - R² = 0.071
   - Coefficient = 35.63
   -  p-value = 0.002
+
 Power BI Dashboard Logic
 DAX logic can be found in !!!!!!
 Metrics Created
   - District with Lowest Engagement
   - District with Lowest Profit
   - District with Both (Combo Priority)
-  - Low Engagement Store Count (<60%)
+  - Low Engagement Store Count (<50%)
 # Caveats and Assumptions 
 - Survey data may be non-representative in stores with few respondents
 - No time component means causal inference is limited
