@@ -19,19 +19,19 @@ VAR SummaryTable =
 VAR LowestRegionRow = TOPN(1, SummaryTable, [AvgEngagement], ASC)
 RETURN
     SELECTCOLUMNS(LowestRegionRow, "District", 'henshaws_cleaned_dataset'[District])
-
+```
 ### Lowest Profit District
 ```DAX
 LowestProfitDistrict = 
 VAR SummaryTable =
     SUMMARIZE(
-        'henshaws_cleaned_dataset',
-        'henshaws_cleaned_dataset'[District],
+        'henshaws_cleaned_dataset', 
+        'henshaws_cleaned_dataset'[District], 
         "AvgProfit", AVERAGE('henshaws_cleaned_dataset'[YTDPROFIT])
     )
-VAR LowestRegionRow = TOPN(1, SummaryTable, [AvgProfit], ASC)
+VAR LowestDistrictRow = TOPN(1, SummaryTable, [AvgProfit], ASC)
 RETURN
-    SELECTCOLUMNS(LowestRegionRow, "District", [District])
+    SELECTCOLUMNS(LowestDistrictRow, "District", [District])
 ```
 
 ---
@@ -51,27 +51,18 @@ CALCULATE(
 
 ## Combo Metric: Engagement + Profit
 
-### Combo Score
+### DistrictComboSummary
 ```DAX
-ComboScore = 
-AVERAGEX(
-    VALUES('henshaws_cleaned_dataset'[StoreNumber]),
-    (
-        'henshaws_cleaned_dataset'[EngagementStoreAverage] + 
-        'henshaws_cleaned_dataset'[YTDPROFIT]
-    ) / 2
+DistrictComboSummary = 
+ADDCOLUMNS(
+    SUMMARIZE('henshaws_cleaned_dataset', 'henshaws_cleaned_dataset'[District]),
+    "AvgEngagement", CALCULATE(AVERAGE('henshaws_cleaned_dataset'[EngagementScore])),
+    "AvgProfit", CALCULATE(AVERAGE('henshaws_cleaned_dataset'[YTDPROFIT])),
+    "CombinedScore", 
+        CALCULATE(AVERAGE('henshaws_cleaned_dataset'[EngagementScore])) + 
+        CALCULATE(AVERAGE('henshaws_cleaned_dataset'[YTDPROFIT]))
 )
-```
 
-### Rank Bottom 5 Combo Stores
-```DAX
-ComboRank = 
-RANKX(
-    ALL('henshaws_cleaned_dataset'[StoreNumber]),
-    [ComboScore],
-    ,
-    ASC
-)
 ```
 
 ---
