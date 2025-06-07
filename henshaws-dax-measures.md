@@ -5,21 +5,20 @@ This file documents the key DAX measures used in the Power BI dashboard to calcu
 
 ---
 
-## 🔹 District-Level KPIs
+## District-Level KPIs
 
 ### Lowest Engagement District
 ```DAX
-LowestEngagementDistrict = 
+Lowest Engagement District = 
 VAR SummaryTable =
     SUMMARIZE(
-        'henshaws_cleaned_dataset',
-        'henshaws_cleaned_dataset'[District],
-        "AvgEngagement", AVERAGE('henshaws_cleaned_dataset'[EngagementStoreAverage])
+        'henshaws_cleaned_dataset', 
+        'henshaws_cleaned_dataset'[District], 
+        "AvgEngagement", AVERAGE('henshaws_cleaned_dataset'[EngagementScore])
     )
 VAR LowestRegionRow = TOPN(1, SummaryTable, [AvgEngagement], ASC)
 RETURN
-    SELECTCOLUMNS(LowestRegionRow, "District", [District])
-```
+    SELECTCOLUMNS(LowestRegionRow, "District", 'henshaws_cleaned_dataset'[District])
 
 ### Lowest Profit District
 ```DAX
@@ -37,20 +36,20 @@ RETURN
 
 ---
 
-## 🔹 Store-Level Risk Indicators
+## Store-Level Risk Indicators
 
-### Low Engagement Store Count (< 60%)
+### Low Engagement Store Count (< 50%)
 ```DAX
-LowEngagementStoreCount = 
+# of Low Engagement Stores = 
 CALCULATE(
     COUNTROWS('henshaws_cleaned_dataset'),
-    'henshaws_cleaned_dataset'[EngagementStoreAverage] < 0.60
+    'henshaws_cleaned_dataset'[EngagementScore] < .508
 )
 ```
 
 ---
 
-## 🔹 Combo Metric: Engagement + Profit
+## Combo Metric: Engagement + Profit
 
 ### Combo Score
 ```DAX
@@ -77,6 +76,6 @@ RANKX(
 
 ---
 
-## 📌 Notes
+## Notes
 - All calculations respect filters implied by the `include_flag` logic used during preprocessing
 - This file is designed to make metrics transparent and portable across dashboards
