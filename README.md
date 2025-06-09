@@ -6,3 +6,8 @@ The primary goal was to derive actionable business insights for stakeholders by 
 * Python-based data cleaning and outlier handling scripts can be found [here].
 * The Power BI dashboard can be downloaded [here].
 * Regression and correlation summaries are discussed in the executive summary and available as visual exports.
+
+# Data Structure Overview 
+
+
+
