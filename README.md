@@ -1,11 +1,11 @@
 # henshaws-case-study-mgmt4780-spring2025
 HR analytics case study from MGMT 4780 (Spring 2025) analyzing the impact of employee engagement and turnover on profit, sales, and customer experience for a gas station retail chain.
 # Background Overview
-Henshaw's is a fictional convenience store and gas station chain operating in the Southeastern United States. This project was conducted in the context of an HR analytics consulting simulation to explore the relationship between employee culture, engagement, turnover, and store-level performance. As part of the analysis, data was collected and merged from multiple business domains, including labor risk assessments, financial performance, employee surveys, and customer satisfaction.
-The primary goal was to derive actionable business insights for stakeholders by identifying which factors most strongly correlate with or predict profitability, turnover, and customer experience outcomes. 
+Henshaw's is a fictional convenience store and gas station chain operating in the Southeastern United States. This project was conducted in the context of an HR analytics consulting simulation to explore the relationship between employee culture, engagement, turnover, and store-level performance. As part of the analysis, data was collected and merged from multiple business domains, including labor risk assessments, financial performance, employee surveys, and customer satisfaction. This project was conducted as part of an academic HR analytics consulting simulation at Georgia State University.
+
 * Python-based data cleaning and outlier handling scripts can be found [here](henshaw's.py).
 * The Power BI dashboard can be downloaded [here](Henshaw's.pbix).
-* A full techinical breakdown can be found [here](technical-notes.md).
+* A full technical breakdown can be found [here](technical-notes.md).
 
 # Data Structure Overview 
 The dataset included four key files:
@@ -13,7 +13,7 @@ The dataset included four key files:
 * Finance File: profit, sales, and turnover metrics
 * Employee Survey File: engagement, satisfaction, teamwork, leadership scores
 * Customer Data File: CSAT and customer complaint volumes
-Each file was merged using the store number as the unique identifier. After preprocessing, outlier filtering, and validity checks, a clean dataset of 136 stores was retained for analys
+Each file was merged using the store number as the unique identifier. After preprocessing, outlier filtering, and validity checks, a clean dataset of 136 stores was retained for analysis
 
 # Executive Summary
 This analysis uncovered several key insights about how culture and people dynamics affect Henshaw's store-level outcomes:
@@ -24,6 +24,12 @@ This analysis uncovered several key insights about how culture and people dynami
 These findings support the need for leadership to view HR and engagement initiatives not as “soft investments,” but as drivers of store efficiency, customer loyalty, and financial stability.
 
 # Insights Deep Dive
+| Metric                  | Value                | Interpretation                                                       |
+| ----------------------- | -------------------- | ------------------------------------------------------------------------ |
+| Engagement vs. Profit   | r = 0.29, p = 0.001  | Moderately positive — engagement appears linked to financial performance |
+| Engagement vs. Turnover | r = –0.15, p = 0.10  | Weak, not statistically significant                                      |
+| Turnover vs. CSAT       | r = –0.38, p < 0.001 | Stronger — turnover likely affects customer satisfaction                 |
+
 ### Engagement & Profit
 * A linear regression showed that a 1-point increase in average engagement score predicted a 35.6% increase in YTD profit.
 * This relationship held even when controlling for outliers and filtering stores with fewer than 5 employees.
