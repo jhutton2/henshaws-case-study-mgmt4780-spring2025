@@ -22,7 +22,11 @@ This analysis uncovered several key insights about how culture and people dynami
 * Turnover negatively impacts customer satisfaction (r = –0.38, p < 0.001) and increases customer complaints (r = 0.30, p = 0.0012), making it a visible business risk.
 * Districts with both low engagement and low profit were flagged as top-priority areas for cultural and operational intervention.
 These findings support the need for leadership to view HR and engagement initiatives not as “soft investments,” but as drivers of store efficiency, customer loyalty, and financial stability.
-![Power BI screenshot showing KPIs by district](docs/dashboard_overview.png)
+
+> Exploring the relationship between employee engagement, turnover, and performance
+
+![Dashboard Preview](docs/dashboard_preview.png)
+
 
 
 # Insights Deep Dive
