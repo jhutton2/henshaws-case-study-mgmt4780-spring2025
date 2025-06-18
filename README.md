@@ -3,9 +3,9 @@ HR analytics case study from MGMT 4780 (Spring 2025) analyzing the impact of emp
 # Background Overview
 Henshaw's is a fictional convenience store and gas station chain operating in the Southeastern United States. This project was conducted in the context of an HR analytics consulting simulation to explore the relationship between employee culture, engagement, turnover, and store-level performance. As part of the analysis, data was collected and merged from multiple business domains, including labor risk assessments, financial performance, employee surveys, and customer satisfaction. This project was conducted as part of an academic HR analytics consulting simulation at Georgia State University.
 
-* Python-based data cleaning and outlier handling scripts can be found [here](henshaw's.py).
-* The Power BI dashboard can be downloaded [here](Henshaw's.pbix).
-* A full technical breakdown can be found [here](technical-notes.md).
+* Python-based data cleaning and outlier handling scripts can be found [here](docs/henshaw's.py).
+* The Power BI dashboard can be downloaded [here](docs/Henshaw's.pbix).
+* A full technical breakdown can be found [here](docs/technical-notes.md).
 
 # Data Structure Overview 
 The dataset included four key files:
